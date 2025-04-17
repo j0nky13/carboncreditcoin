@@ -1,0 +1,10 @@
+{
+  "typeAcquisition": {
+    "include": ["node"]
+  },
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2020"
+  },
+  "include": ["./**/*.js"]
+}
