@@ -12,17 +12,27 @@ function EmailModal() {
     }
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // TODO: Replace this with real API endpoint
-    console.log('Email submitted:', email);
+  try {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/subscribe`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
 
+    const data = await res.json();
+    console.log('✅ Subscribed:', data.message);
     setSubmitted(true);
     localStorage.setItem('co2tax_email_modal', 'true');
     setTimeout(() => setIsOpen(false), 1500);
-  };
-
+  } catch (err) {
+    console.error('❌ Subscription failed:', err);
+  }
+};
   if (!isOpen) return null;
 
   return (
