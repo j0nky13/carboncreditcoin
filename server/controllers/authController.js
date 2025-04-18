@@ -99,7 +99,7 @@
 import User from '../models/User.js';
 import twilio from 'twilio';
 import dotenv from 'dotenv';
-dotenv.config();
+// dotenv.config();
 
 // Initialize Twilio client
 const twilioClient = twilio(
