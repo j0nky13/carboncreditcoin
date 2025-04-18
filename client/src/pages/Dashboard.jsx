@@ -3,6 +3,9 @@
 // import { Copy } from 'lucide-react';
 // import { useAuth } from '../context/AuthContext';
 
+
+
+
 // function Dashboard() {
 //   const { user } = useAuth();
 
@@ -108,7 +111,7 @@
 
 // Updated Dashboard.jsx with cleaner layout
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { ShieldCheck, Blocks, Wallet, TreeDeciduous, Repeat2, Network } from 'lucide-react';
 
@@ -133,6 +136,8 @@ const StatCard = ({ icon: Icon, title, value }) => (
 );
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#0e0f11] min-h-screen text-white p-6">
       {/* Navbar */}
@@ -151,7 +156,7 @@ export default function Dashboard() {
       {/* Tabs */}
       <div className="flex justify-center mt-4 space-x-4">
         <button className="bg-lime-500 text-black font-semibold px-4 py-1 rounded">Overview</button>
-        <button className="bg-gray-700 px-4 py-1 rounded">Nodes</button>
+        <button onClick={() => navigate('/dashboard/nodesdashboard')} className="bg-gray-700 px-4 py-1 rounded hover:bg-gray-600">Nodes</button>
         <button className="bg-gray-700 px-4 py-1 rounded">ICO</button>
         <button className="bg-gray-700 px-4 py-1 rounded">Profile</button>
       </div>

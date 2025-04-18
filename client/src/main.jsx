@@ -42,6 +42,8 @@ import Dashboard from './pages/Dashboard.jsx';
 import LoginWrapper from './pages/LoginWrapper.jsx';
 import ChainStatus from './pages/ChainStatus';
 
+import NodesDashboard from './pages/NodesDashboard.jsx';
+
 
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -61,8 +63,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/investors" element={<Investors />} />
         <Route path="/launch" element={<Launch />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path="/chain-status" element={<ChainStatus />} />
-      </Routes>
+          <Route path="/chain-status" element={<ChainStatus />} />
+        <Route path="/dashboard/nodesdashboard" element={<ProtectedRoute><NodesDashboard /></ProtectedRoute>} />      </Routes>
             </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
