@@ -39,7 +39,7 @@ import './index.css';
 import HowItWorks from './pages/HowItWorks.jsx';
 import Launch from './pages/Launch.jsx';
 import Dashboard from './pages/Dashboard.jsx';
-import Login from './pages/Login.jsx';
+import LoginWrapper from './pages/LoginWrapper.jsx';
 import ChainStatus from './pages/ChainStatus';
 
 
@@ -50,9 +50,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<App />} />
+        <Routes>
+<Route path="/login" element={<LoginWrapper />} />        <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/carbonchain" element={<CarbonChain />} />
