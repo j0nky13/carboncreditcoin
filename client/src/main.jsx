@@ -47,6 +47,7 @@ import ChainStatus from './pages/ChainStatus';
 
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import BrandColors from './components/BrandColors';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -64,6 +65,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/launch" element={<Launch />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/chain-status" element={<ChainStatus />} />
+         {import.meta.env.DEV && (
+  <Route path="/branding" element={<BrandColors />} />
+)} 
         {/* <Route path="/dashboard/nodesdashboard" element={<ProtectedRoute><NodesDashboard /></ProtectedRoute>} /> */}
         </Routes>
             </AuthProvider>
