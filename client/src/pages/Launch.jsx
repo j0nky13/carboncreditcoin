@@ -11,14 +11,14 @@ function Launch() {
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-8">Join the CO2TAX ICO</h1>
 
           <p className="text-lg text-gray-300 mb-6">
-            Be part of the world’s first carbon-negative cryptocurrency. Buy Carbon Credit Coin (CO₂TAX) at our special launch price of <span className="text-primary font-semibold">$0.05 per token</span>.
+            Be part of the world’s first carbon-negative cryptocurrency. Buy Carbon Credit Coin (CO2TAX) at our special launch price of <span className="text-primary font-semibold">$0.05 per token</span>.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 text-left mt-12">
             <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
               <h2 className="text-xl font-semibold text-primary mb-4">ICO Details</h2>
               <ul className="space-y-2 text-gray-300">
-                <li><strong>Token:</strong> CO2TAX</li>
+                <li><strong>Coin:</strong> CO2TAX</li>
                 <li><strong>Launch Date:</strong> April 25, 2025</li>
                 <li><strong>Initial Price:</strong> $0.05 USD</li>
                 <li><strong>Total Supply:</strong> 300,000,000</li>
