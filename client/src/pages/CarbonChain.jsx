@@ -208,13 +208,203 @@
 //     </>
 //   );
 // };
+// export default CarbonChainPage;
+
+// NEWER PAGE
+
+
+// import React from 'react';
+// import NavBar from '../components/NavBar';
+// import Footer from '../components/Footer';
+// import { CheckCircle } from 'lucide-react';
+// import ValidatorWidget from '../components/ValidatorWidget';
+// import TreeWidget from '../components/TreeWidget';
+// import { motion } from 'framer-motion';
+// import { Link } from 'react-router-dom';
+
+// const CarbonChainPage = () => {
+//   return (
+//     <>
+//       <NavBar />
+//       <div className="bg-dark text-white px-4 py-16 space-y-20">
+//         {/* Hero Section */}
+//         <section className="text-center max-w-4xl mx-auto">
+//           <h1 className="text-4xl md:text-5xl font-bold text-[#97FF00] mb-4">CarbonChain: The Carbon-Negative Blockchain</h1>
+//           <p className="text-lg text-gray-300">
+//             Built on Cosmos SDK. Powered by CO2TAX. Designed to plant trees and bring transparency to sustainability through blockchain.
+//           </p>
+//         </section>
+
+//         {/* What is CarbonChain */}
+//         <section className="max-w-3xl mx-auto space-y-4">
+//           <h2 className="text-3xl font-semibold text-[#97FF00]">What is CarbonChain?</h2>
+//           <p>
+//             CarbonChain is an eco-focused, utility-first blockchain that runs on the Cosmos SDK. It utilizes the CO2TAX token to fund real-world sustainability projects, starting with automated tree planting. Every $100 in gas fees collected triggers an on-chain event to plant a tree, with long-term plans for auditable, visible impact.
+//           </p>
+//         </section>
+
+//         {/* Technical Stack */}
+//         <section className="max-w-3xl mx-auto space-y-4">
+//           <h2 className="text-3xl font-semibold text-[#97FF00]">Technical Stack</h2>
+//           <ul className="list-disc list-inside space-y-2 text-gray-300">
+//             <li>Cosmos SDK with Tendermint Core</li>
+//             <li>IBC-enabled from genesis</li>
+//             <li>Axelar integration for EVM + Cosmos cross-chain compatibility</li>
+//             <li>CosmWasm smart contract support for ICO, referral tracking, and leaderboards</li>
+//             <li>Snapshot syncing and aggressive pruning for fast and efficient node setup</li>
+//             <li>Custom wallet prefix: <code>co2tax</code></li>
+//           </ul>
+//         </section>
+
+//         {/* Core Features */}
+//         <section className="max-w-3xl mx-auto space-y-4">
+//           <h2 className="text-3xl font-semibold text-[#97FF00]">Core Features in V1</h2>
+//           <ul className="space-y-3">
+//             <li className="flex items-start gap-2">
+//               <CheckCircle className="text-[#97FF00] mt-1" />
+//               One-click validator setup via Docker or cloud launcher
+//             </li>
+//             <li className="flex items-start gap-2">
+//               <CheckCircle className="text-[#97FF00] mt-1" />
+//               Gas-fee-triggered tree planting system
+//             </li>
+//             <li className="flex items-start gap-2">
+//               <CheckCircle className="text-[#97FF00] mt-1" />
+//               Leap Wallet integration + IBC transfers
+//             </li>
+//             <li className="flex items-start gap-2">
+//               <CheckCircle className="text-[#97FF00] mt-1" />
+//               Transparent genesis with public validator set
+//             </li>
+//             <li className="flex items-start gap-2">
+//               <CheckCircle className="text-[#97FF00] mt-1" />
+//               Smart contract logic for token drops, referral system, and leaderboard rewards
+//             </li>
+//           </ul>
+//         </section>
+
+//         {/* Why CarbonChain vs Others */}
+//         <section className="max-w-5xl mx-auto space-y-6">
+//           <h2 className="text-3xl font-semibold text-[#97FF00] text-center">Why CarbonChain Over Other Chains?</h2>
+//           <p className="text-center text-gray-300">
+//             Unlike other Cosmos SDK chains or DeFi projects, CarbonChain blends real-world impact with modern interoperability.
+//           </p>
+//           <div className="overflow-x-auto">
+//             <table className="w-full table-auto border-collapse text-sm text-left text-white border border-[#3C3C46]">
+//               <thead>
+//                 <tr className="bg-[#1C1537] text-[#97FF00]">
+//                   <th className="px-4 py-2 border border-[#3C3C46]">Feature</th>
+//                   <th className="px-4 py-2 border border-[#3C3C46]">CarbonChain</th>
+//                   <th className="px-4 py-2 border border-[#3C3C46]">Typical Cosmos Chain</th>
+//                 </tr>
+//               </thead>
+//               <tbody className="text-gray-300">
+//                 <tr>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">Eco Utility</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">$100 in gas = 1 tree planted</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">❌ None</td>
+//                 </tr>
+//                 <tr>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">IBC + Axelar</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">✔ Full Cosmos & EVM bridge</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">Partial / IBC only</td>
+//                 </tr>
+//                 <tr>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">Validator Setup</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">One-click with pruning</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">Manual, tech-heavy</td>
+//                 </tr>
+//                 <tr>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">Anti-Bot Protection</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">Built-in sniping defense</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">❌ Often missing</td>
+//                 </tr>
+//                 <tr>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">Smart Contracts</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">✔ CosmWasm w/ custom logic</td>
+//                   <td className="px-4 py-3 border border-[#3C3C46]">Optional, app-specific</td>
+//                 </tr>
+//               </tbody>
+//             </table>
+//           </div>
+//         </section>
+
+//         {/* Utility of CO2TAX */}
+//         <section className="max-w-3xl mx-auto space-y-4">
+//           <h2 className="text-3xl font-semibold text-[#97FF00]">Utility of CO2TAX</h2>
+//           <p>
+//             CO2TAX is a utility token used across CarbonChain. It powers gas fees, validator incentives, and supports eco-focused efforts like real-world tree planting. It is not classified as a security. Future utilities will include staking for governance, payment for sustainability APIs, and unlocking smart contract features.
+//           </p>
+//         </section>
+
+//         {/* Validator Dashboard */}
+//         <section className="max-w-4xl mx-auto space-y-6">
+//           <h2 className="text-3xl font-semibold text-[#6E00FF] text-center">Validator Dashboard</h2>
+//           <p className="text-center text-gray-300">
+//             Launching with the testnet, the validator dashboard gives real-time visibility into block production,
+//             validator uptime, earnings, and total staked CO2TAX.
+//           </p>
+//           <ValidatorWidget />
+//         </section>
+
+//         {/* Tree Counter Widget */}
+//         <section className="max-w-4xl mx-auto space-y-6">
+//           <h2 className="text-3xl font-semibold text-[#6E00FF] text-center">Live Tree Tracker</h2>
+//           <p className="text-center text-gray-300">
+//             Each time $100 in gas fees is processed across the network, one new tree is planted and logged. The widget below shows current totals in real time.
+//           </p>
+//           <TreeWidget />
+//         </section>
+
+//         {/* V2 Implementation Plans */}
+//         <section className="max-w-3xl mx-auto space-y-4 border-t border-[#3C3C46] pt-10">
+//           <h2 className="text-3xl font-semibold text-[#6E00FF]">What’s Next: CarbonChain V2</h2>
+//           <ul className="list-disc list-inside space-y-2 text-gray-300">
+//             <li>zk-rollup or onion-routing privacy architecture</li>
+//             <li>Encrypted data transfer for medical, clinical, and supply chain use cases</li>
+//             <li>Tree fund governance + on-chain carbon impact voting</li>
+//             <li>DAO-driven treasury allocation and feature prioritization</li>
+//             <li>Eco grants + integration of verified sustainability APIs</li>
+//             <li>Seamless upgrade path to CarbonChain 2.0</li>
+//           </ul>
+//         </section>
+
+//         {/* Animated CTA Footer */}
+//         <motion.section 
+//           className="text-center max-w-4xl mx-auto mt-20 border-t border-[#3C3C46] pt-10"
+//           initial={{ opacity: 0, y: 50 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.6, ease: 'easeOut' }}
+//         >
+//           <div className="text-[#97FF00] text-2xl font-semibold mb-4">
+//             Be part of the chain.
+//           </div>
+//           <p className="text-gray-300 mb-6">
+//             Run a validator. Track your eco-impact. Help power a carbon-negative blockchain.
+//           </p>
+//           <Link to="/join" className="inline-block">
+//             <button className="bg-[#6E00FF] text-white px-6 py-2 rounded-full hover:bg-[#5600d1] transition">
+//               Join the Network
+//             </button>
+//           </Link>
+//         </motion.section>
+//       </div>
+//       <Footer />
+//     </>
+//   );
+// };
 
 // export default CarbonChainPage;
+
+
+// NEWEST
+// src/pages/CarbonChain.jsx
 
 import React from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import { CheckCircle } from 'lucide-react';
+import {CheckCircle, ArrowRight, Leaf, Globe, ShieldCheck, Zap, TreePine, Database, Lock, Gavel} from 'lucide-react';
 import ValidatorWidget from '../components/ValidatorWidget';
 import TreeWidget from '../components/TreeWidget';
 import { motion } from 'framer-motion';
@@ -239,6 +429,27 @@ const CarbonChainPage = () => {
           <p>
             CarbonChain is an eco-focused, utility-first blockchain that runs on the Cosmos SDK. It utilizes the CO2TAX token to fund real-world sustainability projects, starting with automated tree planting. Every $100 in gas fees collected triggers an on-chain event to plant a tree, with long-term plans for auditable, visible impact.
           </p>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold text-[#97FF00] mb-6">How It Works</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center">
+            <div className="flex flex-col items-center text-center">
+              <Zap size={36} />
+              <p className="mt-2 text-sm">User Sends CO2TAX</p>
+            </div>
+            <ArrowRight size={24} className="hidden sm:block mx-auto" />
+            <div className="flex flex-col items-center text-center">
+              <Database size={36} />
+              <p className="mt-2 text-sm">Validator Collects Gas</p>
+            </div>
+            <ArrowRight size={24} className="hidden sm:block mx-auto" />
+            <div className="flex flex-col items-center text-center">
+              <TreePine size={36} />
+              <p className="mt-2 text-sm">Tree Gets Planted</p>
+            </div>
+          </div>
         </section>
 
         {/* Technical Stack */}
@@ -281,9 +492,9 @@ const CarbonChainPage = () => {
           </ul>
         </section>
 
-        {/* Why CarbonChain vs Others */}
+        {/* What Makes CarbonChain Different */}
         <section className="max-w-5xl mx-auto space-y-6">
-          <h2 className="text-3xl font-semibold text-[#97FF00] text-center">Why CarbonChain Over Other Chains?</h2>
+          <h2 className="text-3xl font-semibold text-[#97FF00] text-center">What Makes CarbonChain Different</h2>
           <p className="text-center text-gray-300">
             Unlike other Cosmos SDK chains or DeFi projects, CarbonChain blends real-world impact with modern interoperability.
           </p>
@@ -300,11 +511,11 @@ const CarbonChainPage = () => {
                 <tr>
                   <td className="px-4 py-3 border border-[#3C3C46]">Eco Utility</td>
                   <td className="px-4 py-3 border border-[#3C3C46]">$100 in gas = 1 tree planted</td>
-                  <td className="px-4 py-3 border border-[#3C3C46]">❌ None</td>
+                  <td className="px-4 py-3 border border-[#3C3C46]">None</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 border border-[#3C3C46]">IBC + Axelar</td>
-                  <td className="px-4 py-3 border border-[#3C3C46]">✔ Full Cosmos & EVM bridge</td>
+                  <td className="px-4 py-3 border border-[#3C3C46]">Full Cosmos & EVM bridge</td>
                   <td className="px-4 py-3 border border-[#3C3C46]">Partial / IBC only</td>
                 </tr>
                 <tr>
@@ -315,15 +526,56 @@ const CarbonChainPage = () => {
                 <tr>
                   <td className="px-4 py-3 border border-[#3C3C46]">Anti-Bot Protection</td>
                   <td className="px-4 py-3 border border-[#3C3C46]">Built-in sniping defense</td>
-                  <td className="px-4 py-3 border border-[#3C3C46]">❌ Often missing</td>
+                  <td className="px-4 py-3 border border-[#3C3C46]">Often missing</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3 border border-[#3C3C46]">Smart Contracts</td>
-                  <td className="px-4 py-3 border border-[#3C3C46]">✔ CosmWasm w/ custom logic</td>
+                  <td className="px-4 py-3 border border-[#3C3C46]">CosmWasm w/ custom logic</td>
                   <td className="px-4 py-3 border border-[#3C3C46]">Optional, app-specific</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+        </section>
+
+        {/* Trust & Transparency */}
+        <section className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold text-[#97FF00] mb-6">Trust & Transparency</h2>
+          <div className="space-y-4 text-white/80">
+            <p>Every CO2TAX transaction is recorded on-chain and linked to real-world action.</p>
+            <p>Smart contracts manage token drops, validator rewards, and proof of tree planting.</p>
+            <p>Coming soon: our own block explorer, validator dashboard, and public audits.</p>
+          </div>
+        </section>
+
+        {/* Tree Counter Widget */}
+        <section className="max-w-4xl mx-auto space-y-6">
+          <h2 className="text-3xl font-semibold text-[#6E00FF] text-center">Live Tree Tracker</h2>
+          <p className="text-center text-gray-300">
+            Each time $100 in gas fees is processed across the network, one new tree is planted and logged. The widget below shows current totals in real time.
+          </p>
+          <TreeWidget />
+        </section>
+
+        {/* Where CarbonChain Fits */}
+        <section className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-semibold text-[#97FF00] text-center mb-8">Where CarbonChain Fits</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div className="bg-neutral-900 p-6 rounded-2xl border border-neutral-700">
+              <Leaf size={36} className="mx-auto mb-4 text-primary" />
+              <h3 className="text-xl font-bold">Personal Offset</h3>
+              <p className="text-white/80">Reduce your carbon footprint by using CO2TAX to plant trees on-chain.</p>
+            </div>
+            <div className="bg-neutral-900 p-6 rounded-2xl border border-neutral-700">
+              <Globe size={36} className="mx-auto mb-4 text-primary" />
+              <h3 className="text-xl font-bold">Business ESG Goals</h3>
+              <p className="text-white/80">Prove sustainability to clients and regulators with automated, verified offsets.</p>
+            </div>
+            <div className="bg-neutral-900 p-6 rounded-2xl border border-neutral-700">
+              <ShieldCheck size={36} className="mx-auto mb-4 text-primary" />
+              <h3 className="text-xl font-bold">Developer Ecosystem</h3>
+              <p className="text-white/80">Build dApps that reward users for green behavior — on-chain and verifiable.</p>
+            </div>
           </div>
         </section>
 
@@ -345,27 +597,48 @@ const CarbonChainPage = () => {
           <ValidatorWidget />
         </section>
 
-        {/* Tree Counter Widget */}
-        <section className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-3xl font-semibold text-[#6E00FF] text-center">Live Tree Tracker</h2>
-          <p className="text-center text-gray-300">
-            Each time $100 in gas fees is processed across the network, one new tree is planted and logged. The widget below shows current totals in real time.
-          </p>
-          <TreeWidget />
-        </section>
-
         {/* V2 Implementation Plans */}
-        <section className="max-w-3xl mx-auto space-y-4 border-t border-[#3C3C46] pt-10">
-          <h2 className="text-3xl font-semibold text-[#6E00FF]">What’s Next: CarbonChain V2</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-300">
-            <li>zk-rollup or onion-routing privacy architecture</li>
-            <li>Encrypted data transfer for medical, clinical, and supply chain use cases</li>
-            <li>Tree fund governance + on-chain carbon impact voting</li>
-            <li>DAO-driven treasury allocation and feature prioritization</li>
-            <li>Eco grants + integration of verified sustainability APIs</li>
-            <li>Seamless upgrade path to CarbonChain 2.0</li>
-          </ul>
-        </section>
+<section className="max-w-3xl mx-auto space-y-6 border-t border-[#3C3C46] pt-10">
+  <h2 className="text-3xl font-semibold text-[#6E00FF]">What’s Next: CarbonChain V2</h2>
+
+  <div className="space-y-4 text-gray-300">
+    <div>
+      <h3 className="text-lg font-semibold text-white">
+        <Lock className="inline mr-2 text-[#97FF00]" size={18} />Privacy & Secure Data
+      </h3>
+      <ul className="list-disc list-inside space-y-2">
+        <li>zk-rollup or onion-routing privacy architecture for anonymized transactions</li>
+        <li>Encrypted file/data transmission for medical, clinical, and supply chain applications</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold text-white">
+        <TreePine className="inline mr-2 text-[#97FF00]" size={18} />Ecosystem & Sustainability
+      </h3>
+      <ul className="list-disc list-inside space-y-2">
+        <li>Tree fund governance to vote on regional planting efforts and verified partners</li>
+        <li>Eco-grants for dApps that reward green behavior or offset emissions on-chain</li>
+        <li>Carbon oracle and sustainability APIs for real-time CO2 impact tracking</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold text-white">
+        <Gavel className="inline mr-2 text-[#97FF00]" size={18} />Governance & DAO Tools
+      </h3>
+      <ul className="list-disc list-inside space-y-2">
+        <li>On-chain voting to prioritize upgrades and ecosystem spending</li>
+        <li>Smart contract budgeting for eco-initiatives and validator rewards</li>
+        <li>Transparent treasury reporting integrated into the dashboard</li>
+      </ul>
+    </div>
+  </div>
+
+  <p className="text-gray-400 pt-4">
+    CarbonChain V2 will be a seamless upgrade — existing wallets and validators remain intact while unlocking a new wave of privacy, governance, and eco-financial tooling.
+  </p>
+</section>
 
         {/* Animated CTA Footer */}
         <motion.section 
