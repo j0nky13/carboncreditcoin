@@ -9,27 +9,42 @@ import emailRoutes from './routes/emailRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import merchRoutes from './routes/merchRoutes.js';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+// mongoose.connect(process.env.MONGO_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// })
+mongoose.connect(process.env.MONGO_URI);
 .then(() => console.log('✅ MongoDB connected'))
 .catch((err) => console.error('❌ MongoDB error:', err));
 
 // API Routes
-app.use('/api/subscribe', emailRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/merch', merchRoutes);
+app.use('/subscribe', emailRoutes);
+app.use('/auth', authRoutes);
+app.use('/merch', merchRoutes);
 
+// Serve static files from the Vite frontend build
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// Catch-all route for React Router (must come last)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+// Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
