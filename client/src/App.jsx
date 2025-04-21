@@ -54,7 +54,8 @@
 
 
 
-import React from 'react';
+// import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
@@ -76,6 +77,11 @@ import LoginWrapper from './pages/LoginWrapper';
 
 
 function HomePage() {
+  useEffect(() => {
+    console.log("Backend URL:", import.meta.env.VITE_BACKEND_URL);
+  }, []);
+
+  
   return (
     <>
       <NavBar />
@@ -105,5 +111,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
