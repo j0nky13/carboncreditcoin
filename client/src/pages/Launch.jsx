@@ -19,7 +19,7 @@ function Launch() {
               <h2 className="text-xl font-semibold text-primary mb-4">ICO Details</h2>
               <ul className="space-y-2 text-gray-300">
                 <li><strong>Coin:</strong> CO2TAX</li>
-                <li><strong>Launch Date:</strong> April 25, 2025</li>
+                <li><strong>Launch Date:</strong> May 1, 2025</li>
                 <li><strong>Initial Price:</strong> $0.05 USD</li>
                 <li><strong>Total Supply:</strong> 300,000,000</li>
                 <li><strong>Public Allocation:</strong> 100,000,000</li>

@@ -102,7 +102,7 @@ function HeroSection() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const target = new Date("2025-04-25T00:00:00-04:00");
+    const target = new Date("2025-05-01T00:00:00-04:00");
 
     const interval = setInterval(() => {
       const now = new Date();
