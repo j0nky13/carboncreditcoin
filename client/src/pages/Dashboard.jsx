@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import TestnetCountdown from '../components/TestnetCountdown';
+
 import {
   ShieldCheck,
   Blocks,
@@ -81,12 +83,14 @@ export default function Dashboard() {
           <div className="text-center">
             <h2 className="text-2xl font-bold mt-10 mb-4">Welcome back, Jonkyle!</h2>
             <p className="text-gray-400">Here's a summary of your activity on CarbonChain.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 mt-6">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
               <StatCard icon={Wallet} title="Total CO2TAX Earned" value="1,250" />
               <StatCard icon={TreeDeciduous} title="Trees Committed" value="13" />
               <StatCard icon={Repeat2} title="Recent Transactions" value="6" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 px-6">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
               <StatCard icon={Network} title="Node Status" value={`${onlineNodes} of ${mockNodes.length} Online`}>
                 <p className="text-sm text-white mt-1">Average Uptime: 98.9%</p>
               </StatCard>
@@ -99,7 +103,10 @@ export default function Dashboard() {
                 <p className="text-sm text-green-400 font-semibold">Status: Online</p>
               </StatCard>
             </div>
-            <div className="mt-10 px-6">
+
+            <TestnetCountdown />
+
+            <div className="mt-10">
               <h3 className="text-white font-bold mb-2">Node Activity</h3>
               <div className="bg-gray-800 rounded-xl p-4">
                 <ResponsiveContainer width="100%" height={200}>
@@ -114,21 +121,56 @@ export default function Dashboard() {
             </div>
           </div>
         );
-      case 'nodes':
-        return (
-          <div className="mt-10 px-6 text-center">
-            <h2 className="text-2xl font-bold mb-2">Your Nodes</h2>
-            <p className="text-gray-400 mb-6">Monitor and control nodes you've launched on CarbonChain.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {mockNodes.map((node) => (
-                <NodeCard key={node.id} node={node} />
-              ))}
-              <div className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700">
-                + Add Validator
-              </div>
+
+      // case 'nodes':
+      //   return (
+      //     <div className="mt-10 px-6 text-center">
+      //       <h2 className="text-2xl font-bold mb-2">Your Nodes</h2>
+      //       <p className="text-gray-400 mb-6">Monitor and control nodes you've launched on CarbonChain.</p>
+      //       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      //         {mockNodes.map((node) => (
+      //           <NodeCard key={node.id} node={node} />
+      //         ))}
+      //         <div className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700">
+      //           + Add Validator
+      //         </div>
+      //       </div>
+      //     </div>
+      //   );
+
+case 'nodes':
+  const isEligible = true; // Replace with real logic later
+  return (
+    <div className="mt-10 px-6 text-center">
+      <h2 className="text-2xl font-bold mb-2">Your Nodes</h2>
+      <p className="text-gray-400 mb-6">Monitor and control your launched nodes.</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {mockNodes.map((node) => (
+          <NodeCard key={node.id} node={node} />
+        ))}
+        <div className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700">
+          + Add Node
+        </div>
+      </div>
+
+      {isEligible && (
+        <>
+          <h2 className="text-2xl font-bold mt-12 mb-2">Your Validators</h2>
+          <p className="text-gray-400 mb-6">Manage your active validators.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Placeholder for validator cards – can reuse NodeCard with slight changes */}
+            <NodeCard node={{ id: 'Validator 01', status: 'Online', uptime: '99.9%', peers: 16, version: 'v0.50.0' }} />
+            <div className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700">
+              + Add Validator
             </div>
           </div>
-        );
+        </>
+      )}
+    </div>
+  );
+
+
+
       case 'ico':
         return (
           <div className="mt-10 px-6 text-center">
@@ -179,6 +221,7 @@ export default function Dashboard() {
             </div>
           </div>
         );
+
       case 'profile':
         return (
           <div className="text-left mt-10 px-6 max-w-3xl mx-auto">
@@ -206,6 +249,7 @@ export default function Dashboard() {
             </div>
           </div>
         );
+
       default:
         return null;
     }
@@ -213,7 +257,7 @@ export default function Dashboard() {
 
   return (
     <div className="bg-[#0e0f11] min-h-screen text-white p-6">
-      <div className="flex justify-between items-center pb-6 border-b border-gray-700">
+      <div className="max-w-[1120px] mx-auto flex justify-between items-center pb-6 border-b border-gray-700">
         <div className="flex items-center space-x-3">
           <img src="/logo.png" alt="CO2TAX Logo" className="w-8 h-8" />
           <h1 className="text-lime-400 text-xl font-bold">CO2TAX Dashboard</h1>
@@ -224,13 +268,17 @@ export default function Dashboard() {
           <Link to="/" className="text-red-400 hover:underline">Logout</Link>
         </div>
       </div>
-      <div className="flex justify-center mt-4 space-x-4 flex-wrap">
+
+      <div className="max-w-[1120px] mx-auto flex justify-center mt-4 space-x-4 flex-wrap">
         <button onClick={() => setActiveTab('overview')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'overview' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Overview</button>
         <button onClick={() => setActiveTab('nodes')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'nodes' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Nodes</button>
         <button onClick={() => setActiveTab('ico')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'ico' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>ICO</button>
         <button onClick={() => setActiveTab('profile')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'profile' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Profile</button>
       </div>
-      {renderTabContent()}
+
+      <div className="w-full max-w-[1120px] mx-auto">
+        {renderTabContent()}
+      </div>
     </div>
   );
 }
