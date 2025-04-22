@@ -27,7 +27,7 @@ const TestnetCountdown = () => {
   return (
     <div className="w-full bg-gray-900 border border-[#3C0096] rounded-xl text-white py-4 px-6 my-8 text-center shadow-md">
       <h3 className="text-eco-green text-lg font-semibold tracking-wide uppercase mb-1">
-        🚀 Testnet Goes Live In
+         Testnet Goes Live In
       </h3>
       <p className="text-3xl font-bold text-white">
         {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s

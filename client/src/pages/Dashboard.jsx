@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import TestnetCountdown from '../components/TestnetCountdown';
+import NodeModal from '../components/NodeModal';
 
 import {
   ShieldCheck,
@@ -24,27 +25,9 @@ const mockData = [
 ];
 
 const mockNodes = [
-  {
-    id: 'Node 01',
-    status: 'Online',
-    uptime: '99.98%',
-    peers: 12,
-    version: 'v0.50.0',
-  },
-  {
-    id: 'Node 02',
-    status: 'Offline',
-    uptime: '0%',
-    peers: 0,
-    version: 'v0.50.0',
-  },
-  {
-    id: 'Node 03',
-    status: 'Online',
-    uptime: '98.72%',
-    peers: 8,
-    version: 'v0.50.0',
-  },
+  { id: 'Node 01', status: 'Online', uptime: '99.98%', peers: 12, version: 'v0.50.0' },
+  { id: 'Node 02', status: 'Offline', uptime: '0%', peers: 0, version: 'v0.50.0' },
+  { id: 'Node 03', status: 'Online', uptime: '98.72%', peers: 8, version: 'v0.50.0' },
 ];
 
 const StatCard = ({ icon: Icon, title, value, children }) => (
@@ -74,6 +57,10 @@ const NodeCard = ({ node }) => (
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [isAddNodeModalOpen, setAddNodeModalOpen] = useState(false);
+  const [isAddValidatorModalOpen, setAddValidatorModalOpen] = useState(false);
+  const [isBecomeValidatorModalOpen, setBecomeValidatorModalOpen] = useState(false);
+
   const onlineNodes = mockNodes.filter((node) => node.status === 'Online').length;
 
   const renderTabContent = () => {
@@ -95,7 +82,7 @@ export default function Dashboard() {
                 <p className="text-sm text-white mt-1">Average Uptime: 98.9%</p>
               </StatCard>
               <StatCard icon={ShieldCheck} title="Validator Status" value="Eligible">
-                <button className="mt-2 bg-lime-500 text-black font-semibold px-4 py-1 rounded text-sm">Become a Validator</button>
+                <button onClick={() => setBecomeValidatorModalOpen(true)} className="mt-2 bg-lime-500 text-black font-semibold px-4 py-1 rounded text-sm">Become a Validator</button>
               </StatCard>
               <StatCard icon={Blocks} title="Chain Info" value="v0.50.0">
                 <p className="text-sm text-white mt-1">Synced: Yes</p>
@@ -122,54 +109,35 @@ export default function Dashboard() {
           </div>
         );
 
-      // case 'nodes':
-      //   return (
-      //     <div className="mt-10 px-6 text-center">
-      //       <h2 className="text-2xl font-bold mb-2">Your Nodes</h2>
-      //       <p className="text-gray-400 mb-6">Monitor and control nodes you've launched on CarbonChain.</p>
-      //       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      //         {mockNodes.map((node) => (
-      //           <NodeCard key={node.id} node={node} />
-      //         ))}
-      //         <div className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700">
-      //           + Add Validator
-      //         </div>
-      //       </div>
-      //     </div>
-      //   );
-
-case 'nodes':
-  const isEligible = true; // Replace with real logic later
-  return (
-    <div className="mt-10 px-6 text-center">
-      <h2 className="text-2xl font-bold mb-2">Your Nodes</h2>
-      <p className="text-gray-400 mb-6">Monitor and control your launched nodes.</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {mockNodes.map((node) => (
-          <NodeCard key={node.id} node={node} />
-        ))}
-        <div className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700">
-          + Add Node
-        </div>
-      </div>
-
-      {isEligible && (
-        <>
-          <h2 className="text-2xl font-bold mt-12 mb-2">Your Validators</h2>
-          <p className="text-gray-400 mb-6">Manage your active validators.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Placeholder for validator cards – can reuse NodeCard with slight changes */}
-            <NodeCard node={{ id: 'Validator 01', status: 'Online', uptime: '99.9%', peers: 16, version: 'v0.50.0' }} />
-            <div className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700">
-              + Add Validator
+      case 'nodes':
+        const isEligible = true;
+        return (
+          <div className="mt-10 px-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">Your Nodes</h2>
+            <p className="text-gray-400 mb-6">Monitor and control your launched nodes.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {mockNodes.map((node) => (
+                <NodeCard key={node.id} node={node} />
+              ))}
+              <div onClick={() => setAddNodeModalOpen(true)} className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700">
+                + Add Node
+              </div>
             </div>
+
+            {isEligible && (
+              <>
+                <h2 className="text-2xl font-bold mt-12 mb-2">Your Validators</h2>
+                <p className="text-gray-400 mb-6">Manage your active validators.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <NodeCard node={{ id: 'Validator 01', status: 'Online', uptime: '99.9%', peers: 16, version: 'v0.50.0' }} />
+                  <div onClick={() => setAddValidatorModalOpen(true)} className="bg-gray-800 p-6 rounded-xl shadow-md w-full max-w-sm mx-auto flex flex-col items-center justify-center text-lime-400 font-bold text-sm cursor-pointer hover:bg-gray-700 h-[172px]">
+                    + Add Validator
+                  </div>
+                </div>
+              </>
+            )}
           </div>
-        </>
-      )}
-    </div>
-  );
-
-
+        );
 
       case 'ico':
         return (
@@ -279,6 +247,10 @@ case 'nodes':
       <div className="w-full max-w-[1120px] mx-auto">
         {renderTabContent()}
       </div>
+
+      <NodeModal isOpen={isAddNodeModalOpen} onRequestClose={() => setAddNodeModalOpen(false)} type="node" />
+      <NodeModal isOpen={isAddValidatorModalOpen} onRequestClose={() => setAddValidatorModalOpen(false)} type="validator" />
+      <NodeModal isOpen={isBecomeValidatorModalOpen} onRequestClose={() => setBecomeValidatorModalOpen(false)} type="become" />
     </div>
   );
 }
