@@ -16,6 +16,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
+    // const res = await fetch(`https://carbonchain.dev/api/subscribe`, {
     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/subscribe`, {
       method: 'POST',
       headers: {
