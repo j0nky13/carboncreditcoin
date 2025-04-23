@@ -74,8 +74,6 @@
 //     </BrowserRouter>
 //   </React.StrictMode>
 // );
-
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -87,7 +85,6 @@ import Nodes from './pages/Nodes.jsx';
 import Merch from './pages/Merch.jsx';
 import Tokenomics from './pages/Tokenomics.jsx';
 import Investors from './pages/Investors.jsx';
-import './index.css';
 import HowItWorks from './pages/HowItWorks.jsx';
 import Launch from './pages/Launch.jsx';
 import Dashboard from './pages/Dashboard.jsx';
@@ -95,29 +92,31 @@ import LoginWrapper from './pages/LoginWrapper.jsx';
 import ChainStatus from './pages/ChainStatus';
 import ProtectedRoute from './components/ProtectedRoute';
 import BrandColors from './components/BrandColors';
+import AuthHandler from './components/AuthHandler';  
+
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      
-        <Routes>
-          <Route path="/login" element={<LoginWrapper />} />
-          <Route path="/" element={<App />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/carbonchain" element={<CarbonChain />} />
-          <Route path="/nodes" element={<Nodes />} />
-          <Route path="/merch" element={<Merch />} />
-          <Route path="/tokenomics" element={<Tokenomics />} />
-          <Route path="/investors" element={<Investors />} />
-          <Route path="/launch" element={<Launch />} />
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/chain-status" element={<ChainStatus />} />
-          {import.meta.env.DEV && (
-            <Route path="/branding" element={<BrandColors />} />
-          )}
-        </Routes>
-      
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<LoginWrapper />} />
+        <Route path="/auth" element={<AuthHandler />} />   
+        <Route path="/about" element={<About />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/carbonchain" element={<CarbonChain />} />
+        <Route path="/nodes" element={<Nodes />} />
+        <Route path="/merch" element={<Merch />} />
+        <Route path="/tokenomics" element={<Tokenomics />} />
+        <Route path="/investors" element={<Investors />} />
+        <Route path="/launch" element={<Launch />} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/chain-status" element={<ChainStatus />} />
+        {import.meta.env.DEV && (
+          <Route path="/branding" element={<BrandColors />} />
+        )}
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
