@@ -479,8 +479,8 @@ export default function Dashboard() {
             <div className="bg-gray-800 p-6 rounded-xl mb-6">
               <h3 className="text-lg font-semibold text-lime-400 mb-4">Account Info</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-300">
-                <p><strong>Username:</strong> Jonkyle</p>
-                <p><strong>Email:</strong> jonkyle@example.com</p>
+                <p><strong>Username:</strong> Username</p>
+                <p><strong>Email:</strong> username@example.com</p>
                 <p><strong>Phone:</strong> (123) 456-7890</p>
                 <p><strong>Address:</strong> 123 Carbon Lane, EcoCity, EC 45678</p>
               </div>
