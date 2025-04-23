@@ -274,7 +274,7 @@ export default function AuthModal({ isOpen, onClose }) {
   const [error, setError] = useState('');
 
   const actionCodeSettings = {
-    url: 'https://carbonchain.dev/login',  // Change to carboncredit.tax when ready
+    url: 'https://carbonchain.dev/auth',  // Change to carboncredit.tax when ready
     handleCodeInApp: true,
   };
 
