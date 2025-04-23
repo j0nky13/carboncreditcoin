@@ -421,61 +421,7 @@ export default function Dashboard() {
           </div>
         );
 
-      case 'ico':
-        return (
-          <div className="mt-10 px-6 text-center">
-            <h2 className="text-2xl font-bold mb-2">ICO Overview</h2>
-            <p className="text-gray-400 mb-4">Track your contributions and performance during the ICO phase.</p>
-            {/* ICO Stats and Leaderboard */}
-          </div>
-        );
-
-      case 'profile':
-        return (
-          <div className="text-left mt-10 px-6 max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">Your Profile</h2>
-            {/* Profile Details */}
-          </div>
-        );
-
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <div className="bg-[#0e0f11] min-h-screen text-white p-6">
-      <div className="max-w-[1120px] mx-auto flex justify-between items-center pb-6 border-b border-gray-700">
-        <div className="flex items-center space-x-3">
-          <img src="/logo.png" alt="CO2TAX Logo" className="w-8 h-8" />
-          <h1 className="text-lime-400 text-xl font-bold">CO2TAX Dashboard</h1>
-        </div>
-        <div className="space-x-4">
-          <Link to="/" className="hover:underline">Home</Link>
-          <Link to="/merch" className="hover:underline">Merch</Link>
-          <button onClick={handleLogout} className="text-red-400 hover:underline">Logout</button>
-        </div>
-      </div>
-
-      <div className="max-w-[1120px] mx-auto flex justify-center mt-4 space-x-4 flex-wrap">
-        <button onClick={() => setActiveTab('overview')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'overview' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Overview</button>
-        <button onClick={() => setActiveTab('nodes')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'nodes' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Nodes</button>
-        <button onClick={() => setActiveTab('ico')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'ico' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>ICO</button>
-        <button onClick={() => setActiveTab('profile')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'profile' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Profile</button>
-      </div>
-
-      <div className="w-full max-w-[1120px] mx-auto">
-        {renderTabContent()}
-      </div>
-
-      <NodeModal isOpen={isAddNodeModalOpen} onRequestClose={() => setAddNodeModalOpen(false)} type="node" />
-      <NodeModal isOpen={isAddValidatorModalOpen} onRequestClose={() => setAddValidatorModalOpen(false)} type="validator" />
-      <NodeModal isOpen={isBecomeValidatorModalOpen} onRequestClose={() => setBecomeValidatorModalOpen(false)} type="become" />
-    </div>
-  );
-}
-
-case 'ico':
+       case 'ico':
         return (
           <div className="mt-10 px-6 text-center">
             <h2 className="text-2xl font-bold mb-2">ICO Overview</h2>
@@ -558,3 +504,37 @@ case 'ico':
         return null;
     }
   };
+
+  return (
+    <div className="bg-[#0e0f11] min-h-screen text-white p-6">
+      <div className="max-w-[1120px] mx-auto flex justify-between items-center pb-6 border-b border-gray-700">
+        <div className="flex items-center space-x-3">
+          <img src="/logo.png" alt="CO2TAX Logo" className="w-8 h-8" />
+          <h1 className="text-lime-400 text-xl font-bold">CO2TAX Dashboard</h1>
+        </div>
+        <div className="space-x-4">
+          <Link to="/" className="hover:underline">Home</Link>
+          <Link to="/merch" className="hover:underline">Merch</Link>
+          <button onClick={handleLogout} className="text-red-400 hover:underline">Logout</button>
+        </div>
+      </div>
+
+      <div className="max-w-[1120px] mx-auto flex justify-center mt-4 space-x-4 flex-wrap">
+        <button onClick={() => setActiveTab('overview')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'overview' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Overview</button>
+        <button onClick={() => setActiveTab('nodes')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'nodes' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Nodes</button>
+        <button onClick={() => setActiveTab('ico')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'ico' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>ICO</button>
+        <button onClick={() => setActiveTab('profile')} className={`px-4 py-1 rounded font-semibold ${activeTab === 'profile' ? 'bg-lime-500 text-black' : 'bg-gray-700 hover:bg-gray-600'}`}>Profile</button>
+      </div>
+
+      <div className="w-full max-w-[1120px] mx-auto">
+        {renderTabContent()}
+      </div>
+
+      <NodeModal isOpen={isAddNodeModalOpen} onRequestClose={() => setAddNodeModalOpen(false)} type="node" />
+      <NodeModal isOpen={isAddValidatorModalOpen} onRequestClose={() => setAddValidatorModalOpen(false)} type="validator" />
+      <NodeModal isOpen={isBecomeValidatorModalOpen} onRequestClose={() => setBecomeValidatorModalOpen(false)} type="become" />
+    </div>
+  );
+}
+
+   
