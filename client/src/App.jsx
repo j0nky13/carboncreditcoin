@@ -130,7 +130,6 @@ import EmailModal from './components/EmailModal';
 import TreeWidget from './components/TreeWidget';
 import SpinningCoinSection from './components/SpinningCoinSection';
 import Footer from './components/Footer';
-import AuthHandler from './components/AuthHandler';
 
 function App() {
   useEffect(() => {
@@ -139,7 +138,6 @@ function App() {
 
   return (
     <div className="bg-dark text-white min-h-screen">
-      <AuthHandler />
       <NavBar />
       <HeroSection />
       <TreeWidget />
