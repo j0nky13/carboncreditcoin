@@ -3,7 +3,7 @@
 *.env
 
 # Ignore Firebase config (client-side)
-client/lib/firebase.js
+
 
 # Node modules
 node_modules/
