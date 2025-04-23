@@ -474,3 +474,87 @@ export default function Dashboard() {
     </div>
   );
 }
+
+case 'ico':
+        return (
+          <div className="mt-10 px-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">ICO Overview</h2>
+            <p className="text-gray-400 mb-4">Track your contributions and performance during the ICO phase.</p>
+            <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <StatCard icon={Repeat2} title="Your Transactions" value="8" />
+              <StatCard icon={Wallet} title="Projected CO2TAX Reward" value="4,000" />
+              <StatCard icon={Blocks} title="Time Remaining" value="5d 3h" />
+              <StatCard icon={Network} title="Node Rank" value="Top 15%" />
+            </div>
+            <div className="bg-gray-800 p-4 rounded-xl max-w-3xl mx-auto mt-10">
+              <h3 className="text-xl font-bold text-white mb-2">Referral Program</h3>
+              <p className="text-sm text-gray-300 mb-2">Share this link to earn bonus CO2TAX:</p>
+              <div className="bg-gray-900 p-2 rounded flex justify-between items-center">
+                <span className="text-sm text-lime-400">carboncredit.tax/referral/abc123</span>
+                <button className="text-xs text-black bg-lime-500 px-2 py-1 rounded">Copy</button>
+              </div>
+            </div>
+            <div className="mt-6 max-w-3xl mx-auto border border-gray-700 rounded-xl">
+              <h3 className="text-xl font-bold text-white mb-2">Leaderboard</h3>
+              <table className="w-full text-sm text-left text-gray-300">
+                <thead>
+                  <tr className="border-b border-gray-600 text-lime-400">
+                    <th className="py-2 px-4">Rank</th>
+                    <th className="py-2 px-4">User</th>
+                    <th className="py-2 px-4">CO2TAX Earned</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-2 px-4">1</td>
+                    <td className="py-2 px-4">userA</td>
+                    <td className="py-2 px-4">12,000</td>
+                  </tr>
+                  <tr className="border-b border-gray-700">
+                    <td className="py-2 px-4">2</td>
+                    <td className="py-2 px-4">userB</td>
+                    <td className="py-2 px-4">10,500</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 px-4">3</td>
+                    <td className="py-2 px-4">you</td>
+                    <td className="py-2 px-4">4,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        );
+
+      case 'profile':
+        return (
+          <div className="text-left mt-10 px-6 max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">Your Profile</h2>
+            <div className="bg-gray-800 p-6 rounded-xl mb-6">
+              <h3 className="text-lg font-semibold text-lime-400 mb-4">Account Info</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-300">
+                <p><strong>Username:</strong> Jonkyle</p>
+                <p><strong>Email:</strong> jonkyle@example.com</p>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Address:</strong> 123 Carbon Lane, EcoCity, EC 45678</p>
+              </div>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl mb-6">
+              <h3 className="text-lg font-semibold text-lime-400 mb-4">Wallets</h3>
+              <input className="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white mb-2" type="text" placeholder="Enter your CO2TAX Wallet Address" />
+              <input className="w-full p-2 rounded bg-gray-900 border border-gray-700 text-white" type="text" placeholder="Enter your USDC Wallet Address" />
+            </div>
+            <div className="bg-gray-800 p-6 rounded-xl">
+              <h3 className="text-lg font-semibold text-lime-400 mb-4">Purchase History</h3>
+              <ul className="text-sm text-gray-300 divide-y divide-gray-700">
+                <li className="py-2">Node Kit - $99 - Purchased on 2025-03-22</li>
+                <li className="py-2">Validator Slot - $199 - Purchased on 2025-03-25</li>
+              </ul>
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
