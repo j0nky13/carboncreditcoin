@@ -295,25 +295,25 @@ export default function AuthModal({ isOpen, onClose }) {
   };
 
   useEffect(() => {
-    if (isSignInWithEmailLink(auth, window.location.href)) {
-      let storedEmail = window.localStorage.getItem('emailForSignIn');
-      if (!storedEmail) {
-        storedEmail = window.prompt('Please confirm your email to complete sign-in:');
-      }
+    // if (isSignInWithEmailLink(auth, window.location.href)) {
+    //   let storedEmail = window.localStorage.getItem('emailForSignIn');
+    //   if (!storedEmail) {
+    //     storedEmail = window.prompt('Please confirm your email to complete sign-in:');
+    //   }
 
-      signInWithEmailLink(auth, storedEmail, window.location.href)
-        .then(() => {
-          window.localStorage.removeItem('emailForSignIn');
-          setMessage('🎉 Successfully logged in!');
-          setTimeout(() => {
-            window.location.href = '/dashboard';
-          }, 1000);
-        })
-        .catch((err) => {
-          console.error(err);
-          setError('❌ Invalid or expired link.');
-        });
-    }
+    //   signInWithEmailLink(auth, storedEmail, window.location.href)
+    //     .then(() => {
+    //       window.localStorage.removeItem('emailForSignIn');
+    //       setMessage('🎉 Successfully logged in!');
+    //       setTimeout(() => {
+    //         window.location.href = '/dashboard';
+    //       }, 1000);
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //       setError('❌ Invalid or expired link.');
+    //     });
+    // }
   }, []);
 
   if (!isOpen) return null;
