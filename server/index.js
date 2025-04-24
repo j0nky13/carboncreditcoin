@@ -35,7 +35,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-// ✅ Connect to MongoDB and start server
+//  Connect to MongoDB and start server
 const startServer = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
