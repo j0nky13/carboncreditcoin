@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+body {
+	background-color: theme('colors.dark'); /* Use theme() safely HERE */
+	color: white;
+	font-family: sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: bold;
+}
+
+/* Links */
+a {
+	color: theme('colors.ecoGreen');
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}

@@ -13,7 +13,7 @@ export default {
         blurple: '#6E00FF',
         tangerine: '#FF9700',
         cosmicIndigo: '#3C0096',
-        dark: '#1C1537',   // Alias for background use
+        dark: '#1C1537',   // Custom background alias
       },
     },
   },

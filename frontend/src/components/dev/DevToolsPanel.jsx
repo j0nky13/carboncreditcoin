@@ -1,29 +1,26 @@
-// src/components/dev/DevToolsPanel.jsx
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const DevToolsPanel = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  if (import.meta.env.PROD) return null;
+  if (import.meta.env.PROD) return null;  // Hide in production
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-blurple text-white px-4 py-2 rounded shadow-lg"
+        onClick={() => setOpen(!open)}
+        className="bg-blurple text-white px-4 py-2 rounded shadow-lg hover:bg-ecoGreen transition"
       >
-        {isOpen ? 'Close DevTools' : 'Open DevTools'}
+        {open ? 'Close DevTools' : 'Open DevTools'}
       </button>
 
-      {isOpen && (
-        <div className="mt-2 bg-carbonGray text-white p-4 rounded-xl shadow-xl w-64">
-          <h3 className="font-bold mb-2">Developer Tools</h3>
-          <ul className="space-y-2">
-            <li>
-              <Link to="/branding" className="text-ecoGreen hover:underline">Brand Colors</Link>
-            </li>
-            {/* Future tools can be added here */}
+      {open && (
+        <div className="mt-2 bg-carbonGray p-4 rounded-xl shadow-xl space-y-2 w-64">
+          <h2 className="font-bold text-ecoGreen">Developer Tools</h2>
+          <ul className="space-y-1 text-sm">
+            <li><a href="/branding">🎨 Branding Colors</a></li>
+            <li><a href="/chain-status">🔗 Chain Status</a></li>
+            <li><a href="/test-endpoints">🛠️ Test API</a></li>
           </ul>
         </div>
       )}

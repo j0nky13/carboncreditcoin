@@ -1,12 +1,9 @@
-// src/pages/Nodes.jsx
-const Nodes = () => {
+const HomePage = () => {
   return (
-    <div className="p-10">
-      <h2 className="text-3xl font-bold mb-4">Node Management</h2>
-      <p>Deploy and monitor your validators and full nodes here.</p>
+    <div className="p-10 text-center">
+      <h1 className="text-4xl font-bold text-ecoGreen">Welcome to CarbonChain nodes!</h1>
     </div>
   );
 };
 
-export default Nodes;
-
+export default HomePage;
