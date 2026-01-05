@@ -32,7 +32,7 @@ export default function ForwardVision() {
 
           <div className="mt-16 flex flex-wrap gap-10 text-lg">
             <a
-              href="/vision"
+              href="/about"
               className="text-primary hover:underline underline-offset-8 transition"
             >
               Read the long-term vision →
