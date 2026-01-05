@@ -130,8 +130,8 @@ import EmailModal from './components/EmailModal';
 import TreeWidget from './components/TreeWidget';
 import SpinningCoinSection from './components/SpinningCoinSection';
 import Footer from './components/Footer';
-import WhyCarbonChain from './components/WhyCarbonchain';
-import ProtocalEnforcement from './components/ProtocalEnforcement';
+import WhyCarbonChain from './components/WhyCarbonChain';
+import ProtocolEnforcement from './components/ProtocolEnforcement';
 import NetworkParticipation from './components/NetworkParticipation';
 import EconomicModel from './components/EconomicModel';
 import ForwardVision from './components/ForwardVision'
@@ -147,7 +147,7 @@ function App() {
       <HeroSection />
       {/* <TreeWidget /> */}
       <WhyCarbonChain />
-      <ProtocalEnforcement />
+      <ProtocolEnforcement />
       <NetworkParticipation />
       <EconomicModel />
       <ForwardVision/>
