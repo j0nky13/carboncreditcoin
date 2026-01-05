@@ -1,47 +1,106 @@
 // src/components/LiveDemoChart.jsx
-import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { useEffect, useState } from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+} from "recharts";
 
 const generateMockData = () => {
   const now = Date.now();
-  return Array.from({ length: 12 }, (_, i) => ({
-    time: new Date(now - (11 - i) * 60000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-    blocks: 1000 + Math.floor(Math.random() * 100),
+  return Array.from({ length: 14 }, (_, i) => ({
+    time: new Date(now - (13 - i) * 60000).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    }),
+    throughput: 980 + Math.floor(Math.random() * 80),
   }));
 };
 
-function LiveDemoChart() {
+export default function LiveDemoChart() {
   const [data, setData] = useState(generateMockData());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setData((prev) => {
-        const updated = [...prev.slice(1), {
-          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-          blocks: 1000 + Math.floor(Math.random() * 100),
-        }];
-        return updated;
-      });
+      setData((prev) => [
+        ...prev.slice(1),
+        {
+          time: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+          throughput: 980 + Math.floor(Math.random() * 80),
+        },
+      ]);
     }, 5000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="bg-gray-900 rounded-lg p-6 shadow mb-12">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">Block Production (Demo)</h2>
-        <span className="text-xs px-2 py-1 bg-yellow-700 text-yellow-300 rounded">Demo Data</span>
+    <section className="bg-black/60 border border-white/10 rounded-xl p-6">
+      {/* ===== HEADER ===== */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <p className="text-xs uppercase tracking-widest text-primary/80">
+            Network telemetry
+          </p>
+          <h3 className="text-lg font-semibold">
+            Block throughput (rolling window)
+          </h3>
+        </div>
+
+        <span className="text-[11px] px-3 py-1 rounded-full border border-yellow-500/40 text-yellow-400">
+          Demo telemetry
+        </span>
       </div>
-      <ResponsiveContainer width="100%" height={300}>
+
+      {/* ===== CHART ===== */}
+      <ResponsiveContainer width="100%" height={320}>
         <LineChart data={data}>
-          <XAxis dataKey="time" stroke="#ccc" />
-          <YAxis stroke="#ccc" />
-          <Tooltip />
-          <Line type="monotone" dataKey="blocks" stroke="#97FF00" strokeWidth={2} dot={false} />
+          <CartesianGrid
+            strokeDasharray="3 3"
+            stroke="rgba(255,255,255,0.05)"
+          />
+          <XAxis
+            dataKey="time"
+            stroke="rgba(255,255,255,0.4)"
+            tick={{ fontSize: 11 }}
+          />
+          <YAxis
+            stroke="rgba(255,255,255,0.4)"
+            tick={{ fontSize: 11 }}
+            width={40}
+          />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: "#0b0b0b",
+              border: "1px solid rgba(255,255,255,0.1)",
+              fontSize: "12px",
+            }}
+            labelStyle={{ color: "#aaa" }}
+          />
+          <Line
+            type="monotone"
+            dataKey="throughput"
+            stroke="#97FF00"
+            strokeWidth={2}
+            dot={false}
+            isAnimationActive={false}
+          />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+
+      {/* ===== FOOTNOTE ===== */}
+      <p className="mt-4 text-xs text-white/45">
+        Displays simulated block throughput for interface demonstration.
+        Live consensus metrics will replace demo telemetry as public RPC
+        endpoints are enabled.
+      </p>
+    </section>
   );
 }
-
-export default LiveDemoChart;

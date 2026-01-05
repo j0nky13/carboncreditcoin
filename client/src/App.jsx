@@ -130,6 +130,11 @@ import EmailModal from './components/EmailModal';
 import TreeWidget from './components/TreeWidget';
 import SpinningCoinSection from './components/SpinningCoinSection';
 import Footer from './components/Footer';
+import WhyCarbonChain from './components/WhyCarbonchain';
+import ProtocalEnforcement from './components/ProtocalEnforcement';
+import NetworkParticipation from './components/NetworkParticipation';
+import EconomicModel from './components/EconomicModel';
+import ForwardVision from './components/ForwardVision'
 
 function App() {
   useEffect(() => {
@@ -137,18 +142,24 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-dark text-white min-h-screen">
+    < div className="bg-dark text-white min-h-screen">
       <NavBar />
       <HeroSection />
-      <TreeWidget />
-      <CalloutBanner />
-      <AboutSection />
-      <SpinningCoinSection />
-      <EmailModal />
-      <HowItWorks />
-      <DashboardPreview />
-      <ReferralSection />
-      <WhitepaperCTA />
+      {/* <TreeWidget /> */}
+      <WhyCarbonChain />
+      <ProtocalEnforcement />
+      <NetworkParticipation />
+      <EconomicModel />
+      <ForwardVision/>
+      {/* <CalloutBanner /> */}
+
+      {/* <AboutSection /> */}
+      {/* <SpinningCoinSection /> */}
+      {/* <EmailModal /> */}
+      {/* <HowItWorks /> */}
+      {/* <DashboardPreview /> */}
+      {/* <ReferralSection /> */}
+      {/* <WhitepaperCTA /> */}
       <Footer />
     </div>
   );
