@@ -59,7 +59,7 @@ export default function HowItWorks() {
   return (
     <>
       <NavBar />
-      <main className="bg-dark text-white px-4 py-16 space-y-24">
+      <main className="bg-black text-white px-4 py-16 space-y-24">
         <HowItWorksHero />
         <SystemOverview />
         <TransactionLifecycle />

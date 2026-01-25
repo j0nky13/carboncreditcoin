@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 
 const lines = [
   "CarbonChain is a protocol.",
@@ -10,6 +11,7 @@ const lines = [
 export default function ChainHero() {
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(true);
+  const [showArrow, setShowArrow] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,10 +25,18 @@ export default function ChainHero() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowArrow(window.scrollY <= 40);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const words = lines[index].split(" ");
 
   return (
-    <section className="relative min-h-[95vh] bg-black text-white overflow-hidden">
+    <section className="relative w-full min-h-screen bg-black text-white overflow-hidden overflow-x-hidden -mt-20 md:-mt-24">
       {/* ================= BACKGROUND ================= */}
 
       {/* base */}
@@ -50,7 +60,7 @@ export default function ChainHero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black/95" />
 
       {/* ================= CONTENT ================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-36 md:pt-44 pb-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-64 md:pt-72 pb-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-end">
           
           {/* LEFT — MESSAGE */}
@@ -138,6 +148,15 @@ export default function ChainHero() {
 
         </div>
       </div>
+
+      {showArrow && (
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 transition-all duration-500">
+          <ChevronDown
+            size={36}
+            className="text-white/60 animate-bounce"
+          />
+        </div>
+      )}
 
       {/* ================= KEYFRAMES ================= */}
       <style>

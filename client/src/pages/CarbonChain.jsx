@@ -19,20 +19,23 @@ export default function CarbonChainPage() {
   return (
     <>
       <NavBar />
-      <main className="bg-dark text-white px-4 py-16 space-y-24">
+      <main className="bg-black text-white py-16 space-y-24 w-full overflow-x-hidden">
         <ChainHero />
-        <WhatIsCarbonChain />
-        <HowItWorksFlow />
-        <TechnicalStack />
-        <CoreFeatures />
-        <DifferentiationTable />
-        <TrustTransparency />
-        <UseCases />
-        <TokenUtility />
-        <ValidatorSection />
-        <TreeTrackerSection />
-        <V2Roadmap />
-        <ChainCTA />
+        <div className="px-4 md:px-6 space-y-24">
+
+          <WhatIsCarbonChain />
+          <HowItWorksFlow />
+          <TechnicalStack />
+          <CoreFeatures />
+          <DifferentiationTable />
+          <TrustTransparency />
+          <UseCases />
+          <TokenUtility />
+          <ValidatorSection />
+          <TreeTrackerSection />
+          <V2Roadmap />
+          <ChainCTA />
+        </div>
       </main>
       <Footer />
     </>

@@ -38,7 +38,7 @@ export default function HowItWorksHero() {
   const words = LINES[index].split(" ");
 
   return (
-    <section className="relative overflow-hidden bg-black min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-black min-h-screen -mt-16 md:-mt-20 flex items-center">
       {/* ===== BACKGROUND SYSTEM ===== */}
       <div className="absolute inset-0 bg-black" />
 
@@ -57,7 +57,7 @@ export default function HowItWorksHero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/95" />
 
       {/* ===== CONTENT ===== */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 md:pt-40 pb-28 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 md:pt-28 pb-28 w-full">
         <div className="max-w-3xl">
           <p className="uppercase tracking-widest text-primary/80 text-xs mb-6">
             How it works

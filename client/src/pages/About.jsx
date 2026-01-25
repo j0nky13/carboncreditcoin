@@ -13,14 +13,17 @@ export default function Vision() {
   return (
     <>
       <NavBar />
-      <main className="bg-dark text-white space-y-24 py-16 px-6">
+      <main className="bg-black text-white py-16 space-y-24 w-full overflow-x-hidden">
         <VisionHero />
-        <TheProblem />
-        <WhyEnforcementMatters />
-        <CoreBeliefs />
-        <WhatWeReject />
-        <LongTermTrajectory />
-        <VisionCTA />
+
+        <div className="px-4 md:px-6 space-y-24">
+          <TheProblem />
+          <WhyEnforcementMatters />
+          <CoreBeliefs />
+          <WhatWeReject />
+          <LongTermTrajectory />
+          <VisionCTA />
+        </div>
       </main>
       <Footer />
     </>

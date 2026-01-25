@@ -13,7 +13,7 @@ export default function Validators() {
   return (
     <>
       <NavBar />
-      <main className="bg-dark text-white space-y-24 py-16 px-6">
+      <main className="bg-black text-white space-y-24 py-16 px-6">
         <ValidatorsHero />
         <WhatValidatorsDo />
         <ValidatorEconomics />

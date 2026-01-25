@@ -8,7 +8,7 @@ function Investors() {
   return (
     <>
       <NavBar />
-      <section className="bg-dark text-white min-h-screen px-6 py-20">
+      <section className="bg-black text-white min-h-screen px-6 py-20">
         <div className="max-w-5xl mx-auto text-center animate-fadeInUp">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">Investor Relations</h1>
           <p className="text-lg text-gray-300 mb-12">

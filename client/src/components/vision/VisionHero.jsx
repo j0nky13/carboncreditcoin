@@ -27,19 +27,19 @@ export default function VisionHero() {
 
   // ===== hide arrow on scroll =====
   useEffect(() => {
-    const onScroll = () => setShowArrow(window.scrollY < 40);
+    const onScroll = () => setShowArrow(window.scrollY < 44);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex items-center">
+    <section className="relative min-h-[120vh] bg-black overflow-hidden flex items-start -mt-24 pt-24">
       {/* ===== BACKGROUND ===== */}
       <div className="absolute inset-0 bg-black" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/95" />
 
       {/* ===== CONTENT ===== */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-28 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-48 pb-32 w-full">
         <div className="max-w-3xl">
           <p className="uppercase tracking-widest text-primary/80 text-xs mb-6">
             Vision
@@ -71,8 +71,9 @@ export default function VisionHero() {
 
       {/* ===== SCROLL INDICATOR ===== */}
       <div
+        style={{ bottom: "234px" }}
         className={[
-          "absolute bottom-20 left-1/2 -translate-x-1/2 z-20",
+          "absolute left-1/2 -translate-x-1/2 z-20",
           "transition-all duration-500",
           showArrow
             ? "opacity-100 translate-y-0"

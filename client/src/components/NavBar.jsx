@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo2.jpg";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -54,7 +54,7 @@ export default function NavBar() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="CarbonChain" className="h-8 w-8" />
+            <img src={logo} alt="CarbonChain" className="h-12 w-12" />
             <span className="text-primary font-semibold tracking-tight">
               CarbonChain
             </span>
